@@ -1,3 +1,4 @@
+// src/models/Usuario.js
 import { DataTypes } from "sequelize";
 import sequelize from "../database/index.js";
 
@@ -8,7 +9,10 @@ const Usuario = sequelize.define("Usuario", {
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isEmail: true, // valida formato de email automaticamente
+    },
   },
 });
 
